@@ -1,0 +1,35 @@
+<%- include("partials/top") %>
+
+  <h1 class="text-center py-5">Phone store</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Brand</th>
+              <th>Price</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% phone.forEach((el)=> { %>
+              <tr>
+                <td><%= el.brand %> </td>
+                <td><%= el.model %> </td>
+                <td><%= el.price %> </td>
+                <td><%= el.count %> </td>
+                <td>
+                    <a href="/edit/<%= el.id %>" class="btn btn-warning">Edit</a>
+                    <button class="btn btn-danger" onclick="deletePhone('<%= el.id %>')">Delete</button>
+                </td>
+              </tr>
+              <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <%- include("partials/bottom") %>
